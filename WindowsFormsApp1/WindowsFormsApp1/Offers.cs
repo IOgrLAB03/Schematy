@@ -33,5 +33,4 @@ namespace WindowsFormsApp1
 using (var db = new LiteDatabase("DataBase.db"))
 {
     var col = db.GetCollection<Offer>("offers");
-
 }
