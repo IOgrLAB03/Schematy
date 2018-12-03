@@ -11,3 +11,6 @@ C:\Users\pawel\source\repos\Schematy\WindowsFormsApp1\WindowsFormsApp1\bin\Debug
 C:\Users\pawel\source\repos\Schematy\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\nunit.framework.pdb
 C:\Users\pawel\source\repos\Schematy\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\nunit.framework.xml
 C:\Users\pawel\source\repos\Schematy\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+\\KRYWAN\RedirectedUserFolders\mligeza6\Pulpit\repo\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+\\KRYWAN\RedirectedUserFolders\mligeza6\Pulpit\repo\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+\\KRYWAN\RedirectedUserFolders\mligeza6\Pulpit\repo\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
