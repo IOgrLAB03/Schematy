@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
 
         public List<string> expectedReadOffersResult = new List<string>() { "sfgsdfsd", "dfgdf" };
 
-        /*[SetUp]
+        [SetUp]
         public void Init()
         {
             sampleCatalog = new Catalog();
@@ -27,6 +27,6 @@ namespace WindowsFormsApp1
             var result = sampleCatalog.readOffers();
 
             Assert.AreEqual(expectedReadOffersResult, result);
-        }*/
+        }
     }
 }
