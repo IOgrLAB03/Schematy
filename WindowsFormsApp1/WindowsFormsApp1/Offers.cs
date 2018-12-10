@@ -17,20 +17,34 @@ namespace WindowsFormsApp1
         public string Purpose { get; set; }
         public DateTime Date { get; set; }
 
-        public Offer(int id, DateTime date, string title, string content, double basePrice, string place, string purpose)
+
+        public void AddSample()
         {
-            this.Id = id;
-            this.Date = date;
-            this.Title = title;
-            this.Content = content;
-            this.BasePrice = basePrice;
-            this.Place = place;
-            this.Purpose = purpose;
+            using (var db = new LiteDatabase(@"Offers.db"))
+            {
+                var offers = db.GetCollection<Offer>("offers");
+                var offer = new Offer
+                {
+                    Title = "Wakacje",
+                    Content = "Wyjazd",
+                    BasePrice = 4.123,
+                    Place = "Krakow",
+                    Purpose = "Wyjzad sluzbowy",
+                    Date = new DateTime(2018, 12, 21)
+                };
+
+                offers.Insert(offer);
+            }
+        }
+
+        public void addOffer(Offer offer)
+        {
+            using (var db = new LiteDatabase(@"Offers.db"))
+            {
+                var offers = db.GetCollection<Offer>("offers");
+                offers.Insert(offer);
+            }
         }
     }
 }
 
-using (var db = new LiteDatabase("DataBase.db"))
-{
-    var col = db.GetCollection<Offer>("offers");
-}
