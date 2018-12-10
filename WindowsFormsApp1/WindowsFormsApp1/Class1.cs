@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
     {
         private Catalog sampleCatalog;
 
-        public List<string> expectedReadOffersResult = new List<string>() { "sfgsdfsd", "dfgdf" };
+        public List<string> expectedReadOffersResult = new List<string>() { "sfgsdfsd", "dfgdf" }
 
         [SetUp]
         public void Init()
