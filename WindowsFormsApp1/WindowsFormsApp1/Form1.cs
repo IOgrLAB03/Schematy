@@ -92,7 +92,7 @@ namespace WindowsFormsApp1
                         MessageBoxIcon.Warning);
                     if (messageBoxResult == DialogResult.OK)
                     {
-                        Catalog.DeleteOfferBySelectedOffer(SelectedOffer);
+                        Catalog.DeleteOfferFromList(SelectedOffer);
                         listView1.SelectedItems[0].Remove();
                     }
                 };

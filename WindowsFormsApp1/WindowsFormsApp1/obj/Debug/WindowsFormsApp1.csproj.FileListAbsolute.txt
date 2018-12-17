@@ -20,3 +20,20 @@ D:\Studia\semestr 5\inżynieria oprogramowania\Repo\Schematy\WindowsFormsApp1\Wi
 D:\Studia\semestr 5\inżynieria oprogramowania\Repo\Schematy\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 D:\Studia\semestr 5\inżynieria oprogramowania\Repo\Schematy\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 D:\Studia\semestr 5\inżynieria oprogramowania\Repo\Schematy\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\LiteDB.dll
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\nunit.framework.dll
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\LiteDB.xml
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\nunit.framework.pdb
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\nunit.framework.xml
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
+C:\Users\pawel\Source\Repos\IOgrLAB03\UbezpieczeniaTurystyczne\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
