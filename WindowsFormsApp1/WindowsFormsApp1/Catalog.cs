@@ -69,7 +69,7 @@ namespace WindowsFormsApp1
         }
 
         // TODO: aktualizowanie ofert w bazie
-        void updateOfferInDb(int id)
+        public void updateOfferInDb(int id)
         {
 
         }

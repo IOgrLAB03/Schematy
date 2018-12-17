@@ -88,5 +88,21 @@ namespace WindowsFormsApp1
 
             Assert.That(new_offer, Is.EqualTo(temp_catalog.GetOfferById(8)));
         }
+
+        [Test]
+        public void Update_Offer_by_Id_From_Catalog()
+        {
+            Catalog temp_catalog = new Catalog();
+
+            Offer new_offer = new Offer(8, new DateTime(2008, 3, 1, 7, 0, 0), new DateTime(2009, 3, 1, 7, 0, 0),
+                "Ubezpieczenie testowe", "Test content", 500, "California", "Travel");
+
+            temp_catalog.Offers.Add(new_offer);
+
+            temp_catalog.updateOfferInDb(8); // update base price in new_offer to 600
+
+            Assert.That(temp_catalog.GetOfferById(8).BasePrice, Is.EqualTo(600));
+        }
+
     }
 }
