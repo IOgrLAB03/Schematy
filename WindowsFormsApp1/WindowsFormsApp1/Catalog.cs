@@ -69,7 +69,7 @@ namespace WindowsFormsApp1
         }
 
         // TODO: aktualizowanie ofert w bazie
-        void updateOfferInDb(Offer offer)
+        void updateOfferInDb(int id)
         {
 
         }
@@ -88,6 +88,8 @@ namespace WindowsFormsApp1
         {
             return Offers.Find(o => o.Id == id);
         }
+
+
 
         // TODO: do wywalenia -> fronEnd to robi
         void readOffersById()
