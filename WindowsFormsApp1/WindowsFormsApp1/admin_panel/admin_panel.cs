@@ -16,5 +16,10 @@ namespace WindowsFormsApp1.admin_panel
         {
             InitializeComponent();
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
