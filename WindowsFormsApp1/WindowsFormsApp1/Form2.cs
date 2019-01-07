@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LiteDB;
 
 namespace WindowsFormsApp1
 {
@@ -44,7 +45,10 @@ namespace WindowsFormsApp1
                 textBox5.Text = _form1.SelectedOffer.Date.ToShortDateString();
                 if (_form1.SelectedOffer.EndDate != null)
                     textBox6.Text = DateTime.Parse(_form1.SelectedOffer.EndDate.ToString()).ToShortDateString();
+                Offer = _form1.SelectedOffer;
             }
+
+            button1.Text = _form1.UpdateFlag ? "Upadate" : "Create";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -108,9 +112,16 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Offer.Id = _form1.Catalog.Random.Next();
-            _form1.Catalog.Offers.Add(Offer);
-            _form1.listView1.Items.Add(new ListViewItem(_form1.Catalog.offerListViewBody(Offer)));
+            if (!_form1.UpdateFlag)
+            {
+                Offer.Id = _form1.Catalog.Random.Next();
+                _form1.Catalog.Offers.Add(Offer);
+                _form1.listView1.Items.Add(new ListViewItem(_form1.Catalog.OfferListViewBody(Offer)));
+            }
+            else
+            {
+                _form1.SelectedOffer = Offer;
+            }
         }
 
         private void textBox6_OnMouseClick(object sender, MouseEventArgs e)
@@ -130,8 +141,6 @@ namespace WindowsFormsApp1
             monthCalendar1.Visible = !monthCalendar1.Visible;
 
         }
-
-
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {

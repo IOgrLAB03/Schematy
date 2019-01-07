@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
@@ -90,8 +90,8 @@ namespace WindowsFormsApp1
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 0;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             this.textBox5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox5_OnMouseClick);
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // groupBox5
             // 
@@ -107,17 +107,16 @@ namespace WindowsFormsApp1
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(0, 97);
+            this.monthCalendar1.MaxSelectionCount = 365;
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 23;
             this.monthCalendar1.Visible = false;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
-            this.monthCalendar1.MaxSelectionCount = 365;
             // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(7, 20);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(544, 233);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
