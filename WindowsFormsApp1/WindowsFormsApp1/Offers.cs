@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
@@ -10,19 +6,19 @@ namespace WindowsFormsApp1
     {
         public Offer()
         {
-
         }
 
-        public Offer(int id, DateTime date, DateTime? endDate, string title, string content, double basePrice, string place, string purpose)
+        public Offer(int id, DateTime date, DateTime? endDate, string title, string content, double basePrice,
+            string place, string purpose)
         {
-            this.Id = id;
-            this.Date = date;
-            this.EndDate = endDate;
-            this.Title = title;
-            this.Content = content;
-            this.BasePrice = basePrice;
-            this.Place = place;
-            this.Purpose = purpose;
+            Id = id;
+            Date = date;
+            EndDate = endDate;
+            Title = title;
+            Content = content;
+            BasePrice = basePrice;
+            Place = place;
+            Purpose = purpose;
         }
 
         public DateTime? EndDate { get; set; }

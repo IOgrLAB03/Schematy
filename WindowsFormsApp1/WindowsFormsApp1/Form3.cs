@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     public partial class Form3 : Form
     {
+        private readonly List<CheckBox> _checkBoxs = new List<CheckBox>();
+
         private readonly string[] _chronics =
         {
             "None",
@@ -20,20 +18,19 @@ namespace WindowsFormsApp1
             "Chronic 3",
             "Chronic 4",
             "Chronic 5",
-            "Chronic 6",
+            "Chronic 6"
         };
 
-        private Form1 _form1;
-        private List<CheckBox> _checkBoxs = new List<CheckBox>();
+        private readonly Form1 _form1;
+
         private bool _button1ClickedFlag;
-        public int lastIndex;
+        public int LastIndex;
 
         public Form3()
         {
             InitializeComponent();
             CheckBoxesListInit();
             button1.Location = new Point(_checkBoxs.Last().Location.X, _checkBoxs.Last().Location.Y + 23);
-
         }
 
         public Form3(Form1 form1)
@@ -57,17 +54,25 @@ namespace WindowsFormsApp1
                 };
                 tabControl1.Controls.Add(tp);
             }
-            TabBuilder(tabControl1.SelectedTab);
-            CheckBuilder(lastIndex = tabControl1.SelectedIndex);
 
+            for (var i = 0; i < form1.Clients.Length; i++)
+            {
+                tabControl1.SelectedIndex = i;
+                SaveToClient(i);
+                TabBuilder(tabControl1.SelectedTab);
+                CheckBuilder(LastIndex = tabControl1.SelectedIndex);
+            }
         }
 
         //            var i = -1;
         //            foreach (var item in _chronics)
         //                i = CheckBoxInit(item, i);
-        private void CheckBoxesListInit() => _chronics.Aggregate(-1, (current, item) => CheckBoxInit(item, current));
+        private void CheckBoxesListInit()
+        {
+            _chronics.Aggregate(-1, (current, item) => CheckBoxInit(item, current));
+        }
 
-        int CheckBoxInit(string text, int index)
+        private int CheckBoxInit(string text, int index)
         {
             var checkBox = new CheckBox
             {
@@ -77,15 +82,17 @@ namespace WindowsFormsApp1
                 Size = new Size(52, 17),
                 TabIndex = index,
                 Text = text,
-                UseVisualStyleBackColor = true,
+                UseVisualStyleBackColor = true
             };
 
             checkBox.CheckedChanged += (sender, args) =>
             {
                 var flag = false;
                 if (checkBox == _checkBoxs.First())
+                {
                     for (var j = 1; j < _checkBoxs.Count; j++)
                         _checkBoxs[j].Enabled = !checkBox.Checked;
+                }
                 else
                 {
                     for (var j = 1; j < _checkBoxs.Count; j++)
@@ -101,12 +108,11 @@ namespace WindowsFormsApp1
 
                     _checkBoxs.First().Checked = flag;
                 }
-
             };
 
             if (index != 0)
             {
-                var cms = new ContextMenuStrip { Items = { "Delete" } };
+                var cms = new ContextMenuStrip {Items = {"Delete"}};
                 cms.ItemClicked += (sender, args) =>
                 {
                     _checkBoxs.Remove(checkBox);
@@ -124,7 +130,6 @@ namespace WindowsFormsApp1
 
             _checkBoxs.Add(checkBox);
             return index;
-
         }
 
         public void SaveToClient(int index)
@@ -137,17 +142,17 @@ namespace WindowsFormsApp1
         }
 
 
-        void CheckBuilder(int index)
+        private void CheckBuilder(int index)
         {
             if (!_form1.Clients[index].ChronicDesieses.Any())
             {
                 _checkBoxs[0].Checked = true;
                 return;
             }
+
             foreach (var checkBox in _checkBoxs)
                 checkBox.Checked = _form1.Clients[index].ChronicDesieses.Contains(checkBox.Text);
         }
-
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -164,7 +169,7 @@ namespace WindowsFormsApp1
                 textBox1.Visible = false;
                 button1.Text = "Other";
                 _button1ClickedFlag = false;
-                _checkBoxs[(CheckBoxInit(textBox1.Text, _checkBoxs.Count - 1))].Checked = true;
+                _checkBoxs[CheckBoxInit(textBox1.Text, _checkBoxs.Count - 1)].Checked = true;
                 tabControl1.SelectedTab.Controls.Clear();
                 LocationReBuilder();
                 TabBuilder(tabControl1.SelectedTab);
@@ -183,8 +188,9 @@ namespace WindowsFormsApp1
         {
             try
             {
+                // ReSharper disable once CoVariantArrayConversion
                 eTabPage.Controls.AddRange(_checkBoxs.ToArray());
-                eTabPage.Controls.AddRange(new Control[] { button1, textBox1 });
+                eTabPage.Controls.AddRange(new Control[] {button1, textBox1});
             }
             catch (Exception)
             {
@@ -194,11 +200,18 @@ namespace WindowsFormsApp1
 
         private void TabControl1Selected(object sender, TabControlEventArgs e)
         {
-            CheckBuilder(lastIndex = e.TabPageIndex);
+            CheckBuilder(LastIndex = e.TabPageIndex);
             TabBuilder(e.TabPage);
-
         }
 
-        private void BeforeTabControl1Selected(object sender, TabControlCancelEventArgs e) => SaveToClient(lastIndex);
+        private void BeforeTabControl1Selected(object sender, TabControlCancelEventArgs e)
+        {
+            SaveToClient(LastIndex);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

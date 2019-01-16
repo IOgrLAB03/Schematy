@@ -1,34 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        public Catalog Catalog;
-        public Offer SelectedOffer;
-        public Order Order;
-        public bool UpdateFlag;
-        private bool _endDateTextBox10Focus;
-        private bool _startDateTextBox9Focus;
-        public Client[] Clients;
-        private bool _button1Flag;
-        private Dictionary<string, bool> _selectFlags = new Dictionary<string, bool>
+        private readonly Dictionary<string, bool> _selectFlags = new Dictionary<string, bool>
         {
-            { "start date", false},
-            { "end date", false},
-            {"nop", false }
-
+            {"start date", false},
+            {"end date", false},
+            {"nop", false}
         };
+
+        private bool _button1Flag;
+        private bool _endDateTextBox10Focus;
+
+        private bool _startDateTextBox9Focus;
+        public Catalog Catalog;
+        public Client[] Clients;
+        public Order Order;
+        public Offer SelectedOffer;
+        public bool UpdateFlag;
 
 
         public Form1()
@@ -78,48 +74,42 @@ namespace WindowsFormsApp1
 
         private void listView1_OnMouseClick(object sender, MouseEventArgs e)
         {
-            if ((e.Button & MouseButtons.Right) != 0)
+            if ((e.Button & MouseButtons.Right) == 0) return;
+            SelectedOffer = Catalog.GetOfferById(
+                int.Parse(listView1.SelectedItems[0].SubItems[listView1.SelectedItems[0].SubItems.Count - 1].Text)
+            );
+            var contextMenu = new ContextMenuStrip();
+            contextMenu.Items.Add("Add Offer");
+            contextMenu.Items.Add("Update Offer");
+            contextMenu.Items.Add("Delete Offer");
+            contextMenu.Show(listView1.PointToScreen(e.Location));
+            contextMenu.Items[0].Click += (s, args) =>
             {
-                SelectedOffer = Catalog.GetOfferById(
-                   int.Parse(listView1.SelectedItems[0].SubItems[listView1.SelectedItems[0].SubItems.Count - 1].Text)
-                   );
-                var contextMenu = new ContextMenuStrip();
-                contextMenu.Items.Add("Add Offer");
-                contextMenu.Items.Add("Update Offer");
-                contextMenu.Items.Add("Delete Offer");
-                contextMenu.Show(listView1.PointToScreen(e.Location));
-                contextMenu.Items[0].Click += (s, args) =>
-                {
-                    UpdateFlag = false;
-                    var form2 = new Form2(this);
-                    form2.Show();
-                };
+                UpdateFlag = false;
+                var form2 = new Form2(this);
+                form2.Show();
+            };
 
-                contextMenu.Items[1].Click += (a, args) =>
-                {
-                    UpdateFlag = true;
-                    var form2 = new Form2(this);
-                    form2.Show();
-                };
+            contextMenu.Items[1].Click += (a, args) =>
+            {
+                UpdateFlag = true;
+                var form2 = new Form2(this);
+                form2.Show();
+            };
 
-                contextMenu.Items[2].Click += (a, args) =>
-                {
-                    if (SelectedOffer == null)
-                        return;
-                    var messageBoxResult = MessageBox.Show(
-                        "Are You sure to delete '" + SelectedOffer.Title + "' offer with ID: " + SelectedOffer.Id,
-                        "Offer deleting",
-                        MessageBoxButtons.OKCancel,
-                        MessageBoxIcon.Warning);
-                    if (messageBoxResult == DialogResult.OK)
-                    {
-                        Catalog.DeleteOfferFromList(SelectedOffer);
-                        listView1.SelectedItems[0].Remove();
-                    }
-                };
-
-            }
-
+            contextMenu.Items[2].Click += (a, args) =>
+            {
+                if (SelectedOffer == null)
+                    return;
+                var messageBoxResult = MessageBox.Show(
+                    "Are You sure to delete '" + SelectedOffer.Title + "' offer with ID: " + SelectedOffer.Id,
+                    "Offer deleting",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning);
+                if (messageBoxResult != DialogResult.OK) return;
+                Catalog.DeleteOfferFromList(SelectedOffer);
+                listView1.SelectedItems[0].Remove();
+            };
         }
 
         private void startDateTextBox9_TextChanged(object sender, EventArgs e)
@@ -135,7 +125,9 @@ namespace WindowsFormsApp1
                     ButtonEnable();
                 }
                 else
+                {
                     throw new Exception();
+                }
             }
             catch (Exception)
             {
@@ -151,7 +143,6 @@ namespace WindowsFormsApp1
             _endDateTextBox10Focus = false;
 
             monthCalendar1.Visible = !monthCalendar1.Visible;
-
         }
 
         private void startDateTextBox9_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -159,7 +150,6 @@ namespace WindowsFormsApp1
             startDateTextBox9.BackColor = Color.LightCoral;
             _selectFlags["start date"] = false;
             ButtonEnable();
-
         }
 
         private void endDateTextBox10_TextChanged(object sender, EventArgs e)
@@ -173,10 +163,12 @@ namespace WindowsFormsApp1
                     endDateTextBox10.BackColor = Color.LightGreen;
                     _selectFlags["end date"] = true;
                     ButtonEnable();
-                    AmountUpdate(beta: dateAmount());
+                    AmountUpdate(beta: DateAmount());
                 }
                 else
+                {
                     throw new Exception();
+                }
             }
             catch (Exception)
             {
@@ -192,8 +184,8 @@ namespace WindowsFormsApp1
             _startDateTextBox9Focus = false;
 
             monthCalendar1.Visible = !monthCalendar1.Visible;
-
         }
+
         private void endDateTextBox10_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             endDateTextBox10.BackColor = Color.LightCoral;
@@ -215,14 +207,13 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             if (!_button1Flag)
             {
                 var form3 = new Form3(this);
                 form3.Closing += (o, args) =>
                 {
-                    form3.SaveToClient(form3.lastIndex);
-                    AmountUpdate(chronicAmount(), dateAmount());
+                    form3.SaveToClient(form3.LastIndex);
+                    AmountUpdate(ChronicAmount(), DateAmount());
                 };
                 form3.Show();
                 _button1Flag = true;
@@ -231,11 +222,11 @@ namespace WindowsFormsApp1
             else
             {
                 if (_button1Flag = MessageBox.Show(
-                                        "Confirm payment?",
-                                        "Payment",
-                                        MessageBoxButtons.OKCancel,
-                                        MessageBoxIcon.Question,
-                                        MessageBoxDefaultButton.Button1) == DialogResult.OK)
+                                       "Confirm payment?",
+                                       "Payment",
+                                       MessageBoxButtons.OKCancel,
+                                       MessageBoxIcon.Question,
+                                       MessageBoxDefaultButton.Button1) == DialogResult.OK)
                     MessageBox.Show(
                         "Thank You",
                         "Payment Confirmed",
@@ -250,7 +241,7 @@ namespace WindowsFormsApp1
             //todo: process final offer 
         }
 
-        void ButtonEnable()
+        private void ButtonEnable()
         {
             foreach (var flag in _selectFlags)
                 if (!flag.Value)
@@ -258,7 +249,7 @@ namespace WindowsFormsApp1
             button1.Enabled = true;
         }
 
-        void AmountUpdate(double alpha = 1, double beta = 1)
+        private void AmountUpdate(double alpha = 1, double beta = 1)
         {
             try
             {
@@ -274,12 +265,15 @@ namespace WindowsFormsApp1
             }
         }
 
-        double chronicAmount()
+        private double ChronicAmount()
         {
-            return (1.0 + (from client in Clients from chronic in client.ChronicDesieses where chronic != "None" select 0.01).Sum());
+            return 1.0 + (from client in Clients
+                       from chronic in client.ChronicDesieses
+                       where chronic != "None"
+                       select 0.01).Sum();
         }
 
-        double dateAmount()
+        private double DateAmount()
         {
             return (Order.Homecomming - Order.Departure).TotalDays;
         }
@@ -292,9 +286,6 @@ namespace WindowsFormsApp1
             _selectFlags["nop"] = true;
             ButtonEnable();
             AmountUpdate();
-
         }
-
-
     }
 }

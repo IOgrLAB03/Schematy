@@ -1,23 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using LiteDB;
 
 namespace WindowsFormsApp1
 {
     public partial class Form2 : Form
     {
-        private Offer Offer { get; }
-        private Form1 _form1;
-        private bool _startDateTextBox5Focus;
+        private readonly Form1 _form1;
         private bool _endDateTextBox6Focus;
+        private bool _startDateTextBox5Focus;
 
 
         public Form2()
@@ -28,10 +19,10 @@ namespace WindowsFormsApp1
             _endDateTextBox6Focus = false;
         }
 
-        public Form2(Form form)
+        public Form2(Form1 form1)
         {
             InitializeComponent();
-            _form1 = form as Form1;
+            _form1 = form1;
             Offer = new Offer();
             _startDateTextBox5Focus = false;
             _endDateTextBox6Focus = false;
@@ -51,6 +42,9 @@ namespace WindowsFormsApp1
             button1.Text = _form1.UpdateFlag ? "Upadate" : "Create";
         }
 
+        private Offer Offer { get; }
+
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             Offer.Title = textBox1.Text;
@@ -59,13 +53,11 @@ namespace WindowsFormsApp1
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             Offer.Place = textBox2.Text;
-
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             Offer.Purpose = textBox3.Text;
-
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -78,7 +70,6 @@ namespace WindowsFormsApp1
             {
                 Console.WriteLine(exception);
             }
-
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -116,7 +107,6 @@ namespace WindowsFormsApp1
             _startDateTextBox5Focus = false;
 
             monthCalendar1.Visible = !monthCalendar1.Visible;
-
         }
 
         private void startDateTextBox5_OnMouseClick(object sender, MouseEventArgs e)
@@ -125,7 +115,6 @@ namespace WindowsFormsApp1
             _endDateTextBox6Focus = false;
 
             monthCalendar1.Visible = !monthCalendar1.Visible;
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -142,7 +131,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
