@@ -31,9 +31,9 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.endDateTextBox6 = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.startDateTextBox5 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -57,7 +57,7 @@ namespace WindowsFormsApp1
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.textBox6);
+            this.groupBox7.Controls.Add(this.endDateTextBox6);
             this.groupBox7.Location = new System.Drawing.Point(189, 415);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(150, 51);
@@ -65,18 +65,18 @@ namespace WindowsFormsApp1
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "End Date";
             // 
-            // textBox6
+            // endDateTextBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(7, 18);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 0;
-            this.textBox6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox6_OnMouseClick);
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.endDateTextBox6.Location = new System.Drawing.Point(7, 18);
+            this.endDateTextBox6.Name = "endDateTextBox6";
+            this.endDateTextBox6.Size = new System.Drawing.Size(100, 20);
+            this.endDateTextBox6.TabIndex = 0;
+            this.endDateTextBox6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.endDateTextBox6_OnMouseClick);
+            this.endDateTextBox6.TextChanged += new System.EventHandler(this.endDateTextBox6_TextChanged);
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.textBox5);
+            this.groupBox6.Controls.Add(this.startDateTextBox5);
             this.groupBox6.Location = new System.Drawing.Point(26, 415);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(150, 51);
@@ -84,14 +84,14 @@ namespace WindowsFormsApp1
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Expose Date";
             // 
-            // textBox5
+            // startDateTextBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(7, 18);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 0;
-            this.textBox5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox5_OnMouseClick);
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.startDateTextBox5.Location = new System.Drawing.Point(7, 18);
+            this.startDateTextBox5.Name = "startDateTextBox5";
+            this.startDateTextBox5.Size = new System.Drawing.Size(100, 20);
+            this.startDateTextBox5.TabIndex = 0;
+            this.startDateTextBox5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.startDateTextBox5_OnMouseClick);
+            this.startDateTextBox5.TextChanged += new System.EventHandler(this.startDateTextBox5_TextChanged);
             // 
             // groupBox5
             // 
@@ -239,9 +239,9 @@ namespace WindowsFormsApp1
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox endDateTextBox6;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox startDateTextBox5;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.GroupBox groupBox4;

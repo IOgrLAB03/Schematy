@@ -48,6 +48,16 @@ namespace WindowsFormsApp1
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.startDateTextBox9 = new System.Windows.Forms.MaskedTextBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.endDateTextBox10 = new System.Windows.Forms.MaskedTextBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.numberComboBox1 = new System.Windows.Forms.ComboBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -56,15 +66,19 @@ namespace WindowsFormsApp1
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView1
             // 
             this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(12, 89);
+            this.listView1.Location = new System.Drawing.Point(12, 112);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(404, 349);
+            this.listView1.Size = new System.Drawing.Size(404, 360);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -226,19 +240,141 @@ namespace WindowsFormsApp1
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(713, 415);
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(658, 369);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(130, 47);
             this.button1.TabIndex = 15;
             this.button1.Text = "Sellect";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // startDateTextBox9
+            // 
+            this.startDateTextBox9.Location = new System.Drawing.Point(6, 19);
+            this.startDateTextBox9.Mask = "00/00/0000";
+            this.startDateTextBox9.Name = "startDateTextBox9";
+            this.startDateTextBox9.Size = new System.Drawing.Size(100, 20);
+            this.startDateTextBox9.TabIndex = 16;
+            this.startDateTextBox9.ValidatingType = typeof(System.DateTime);
+            this.startDateTextBox9.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.startDateTextBox9_MaskInputRejected);
+            this.startDateTextBox9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.startDateTextBox9_OnMouseClick);
+            this.startDateTextBox9.TextChanged += new System.EventHandler(this.startDateTextBox9_TextChanged);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.startDateTextBox9);
+            this.groupBox9.Location = new System.Drawing.Point(422, 369);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(112, 47);
+            this.groupBox9.TabIndex = 18;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Departure";
+            this.groupBox9.Visible = false;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.endDateTextBox10);
+            this.groupBox10.Location = new System.Drawing.Point(540, 369);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(112, 47);
+            this.groupBox10.TabIndex = 19;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Homecomming";
+            this.groupBox10.Visible = false;
+            // 
+            // endDateTextBox10
+            // 
+            this.endDateTextBox10.Location = new System.Drawing.Point(6, 19);
+            this.endDateTextBox10.Mask = "00/00/0000";
+            this.endDateTextBox10.Name = "endDateTextBox10";
+            this.endDateTextBox10.Size = new System.Drawing.Size(100, 20);
+            this.endDateTextBox10.TabIndex = 16;
+            this.endDateTextBox10.ValidatingType = typeof(System.DateTime);
+            this.endDateTextBox10.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.endDateTextBox10_MaskInputRejected);
+            this.endDateTextBox10.MouseClick += new System.Windows.Forms.MouseEventHandler(this.endDateTextBox10_OnMouseClick);
+            this.endDateTextBox10.TextChanged += new System.EventHandler(this.endDateTextBox10_TextChanged);
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.numberComboBox1);
+            this.groupBox11.Location = new System.Drawing.Point(422, 422);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(112, 51);
+            this.groupBox11.TabIndex = 20;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Persons count";
+            this.groupBox11.Visible = false;
+            // 
+            // numberComboBox1
+            // 
+            this.numberComboBox1.FormattingEnabled = true;
+            this.numberComboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.numberComboBox1.Location = new System.Drawing.Point(6, 19);
+            this.numberComboBox1.Name = "numberComboBox1";
+            this.numberComboBox1.Size = new System.Drawing.Size(100, 21);
+            this.numberComboBox1.TabIndex = 20;
+            this.numberComboBox1.Text = "0";
+            this.numberComboBox1.SelectedIndexChanged += new System.EventHandler(this.numberComboBox1_SelectedIndexChanged);
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.label9);
+            this.groupBox12.Controls.Add(this.label8);
+            this.groupBox12.Location = new System.Drawing.Point(540, 422);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(248, 51);
+            this.groupBox12.TabIndex = 21;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Full Amount / Amount Per Person";
+            this.groupBox12.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(206, 26);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "label9";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 26);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "label8";
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(417, 200);
+            this.monthCalendar1.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.monthCalendar1.MaxSelectionCount = 365;
+            this.monthCalendar1.MinDate = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 22;
+            this.monthCalendar1.Visible = false;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 484);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.groupBox12);
+            this.Controls.Add(this.groupBox11);
+            this.Controls.Add(this.groupBox10);
+            this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
@@ -266,6 +402,13 @@ namespace WindowsFormsApp1
             this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -290,6 +433,16 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label7;
         private Button button1;
+        private MaskedTextBox startDateTextBox9;
+        private GroupBox groupBox9;
+        private GroupBox groupBox10;
+        private MaskedTextBox endDateTextBox10;
+        private GroupBox groupBox11;
+        private ComboBox numberComboBox1;
+        private GroupBox groupBox12;
+        private Label label9;
+        private Label label8;
+        private MonthCalendar monthCalendar1;
     }
 }
 

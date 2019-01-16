@@ -42,9 +42,9 @@ namespace WindowsFormsApp1
                 textBox3.Text = _form1.SelectedOffer.Purpose;
                 textBox4.Text = _form1.SelectedOffer.BasePrice.ToString(CultureInfo.CurrentCulture);
                 richTextBox1.Text = _form1.SelectedOffer.Content;
-                textBox5.Text = _form1.SelectedOffer.Date.ToShortDateString();
+                startDateTextBox5.Text = _form1.SelectedOffer.Date.ToShortDateString();
                 if (_form1.SelectedOffer.EndDate != null)
-                    textBox6.Text = DateTime.Parse(_form1.SelectedOffer.EndDate.ToString()).ToShortDateString();
+                    endDateTextBox6.Text = DateTime.Parse(_form1.SelectedOffer.EndDate.ToString()).ToShortDateString();
                 Offer = _form1.SelectedOffer;
             }
 
@@ -86,11 +86,11 @@ namespace WindowsFormsApp1
             Offer.Content = richTextBox1.Text;
         }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
+        private void startDateTextBox5_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                Offer.Date = DateTime.Parse(textBox5.Text);
+                Offer.Date = DateTime.Parse(startDateTextBox5.Text);
             }
             catch (Exception exception)
             {
@@ -98,16 +98,34 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
+        private void endDateTextBox6_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                Offer.EndDate = DateTime.Parse(textBox6.Text);
+                Offer.EndDate = DateTime.Parse(endDateTextBox6.Text);
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
             }
+        }
+
+        private void endDateTextBox6_OnMouseClick(object sender, MouseEventArgs e)
+        {
+            _endDateTextBox6Focus = true;
+            _startDateTextBox5Focus = false;
+
+            monthCalendar1.Visible = !monthCalendar1.Visible;
+
+        }
+
+        private void startDateTextBox5_OnMouseClick(object sender, MouseEventArgs e)
+        {
+            _startDateTextBox5Focus = true;
+            _endDateTextBox6Focus = false;
+
+            monthCalendar1.Visible = !monthCalendar1.Visible;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -124,23 +142,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void textBox6_OnMouseClick(object sender, MouseEventArgs e)
-        {
-            _endDateTextBox6Focus = true;
-            _startDateTextBox5Focus = false;
-
-            monthCalendar1.Visible = !monthCalendar1.Visible;
-
-        }
-
-        private void textBox5_OnMouseClick(object sender, MouseEventArgs e)
-        {
-            _startDateTextBox5Focus = true;
-            _endDateTextBox6Focus = false;
-
-            monthCalendar1.Visible = !monthCalendar1.Visible;
-
-        }
+        
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
@@ -148,10 +150,9 @@ namespace WindowsFormsApp1
             var endDate = monthCalendar1.SelectionEnd.ToShortDateString();
 
             if (DateTime.Parse(startDate) < DateTime.Parse(endDate) || _startDateTextBox5Focus)
-                textBox5.Text = monthCalendar1.SelectionStart.ToShortDateString();
+                startDateTextBox5.Text = monthCalendar1.SelectionStart.ToShortDateString();
             if (DateTime.Parse(startDate) < DateTime.Parse(endDate) || _endDateTextBox6Focus)
-                textBox6.Text = monthCalendar1.SelectionEnd.ToShortDateString();
-
+                endDateTextBox6.Text = monthCalendar1.SelectionEnd.ToShortDateString();
         }
     }
 }

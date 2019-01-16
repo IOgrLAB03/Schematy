@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    class Order
+    public class Order
     {
-        private double Amount { get; set; }
-        private DateTime Departure { get; set; }
-        private DateTime Arrival { get; set; }
-        private DateTime PurchaseDate { get; set; }
-        private string PersonCount { get; set; }
-        private string ChronicDiseases { get; set; }
+        public double Amount { get; set; }
+        public DateTime Departure { get; set; }
+        public DateTime Homecomming { get; set; }
+        public DateTime PurchaseDate { get; set; }
+        public int PersonCount { get; set; }
+        public List<Client> Clients { get; set; }
 
         void GetData()
         {

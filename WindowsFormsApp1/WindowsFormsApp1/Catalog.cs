@@ -33,6 +33,9 @@ namespace WindowsFormsApp1
             //{
             //    Offers.Add(VARIABLE);
             //}
+            // TODO: or something like that:
+            // SELECT * FROM db
+            // WHERE (EndDate >= DateTime.Now) OR (EndDate == NULL)
 
 
 
@@ -43,12 +46,12 @@ namespace WindowsFormsApp1
             var listViewItems = new List<ListViewItem>();
             foreach (var offer in Offers)
             {
-                listViewItems.Add(new ListViewItem(offerListViewBody(offer)));
+                listViewItems.Add(new ListViewItem(OfferListViewBody(offer)));
             }
             return listViewItems;
         }
 
-        internal string[] offerListViewBody(Offer offer)
+        internal string[] OfferListViewBody(Offer offer)
         {
             return new[]
             {
@@ -59,16 +62,24 @@ namespace WindowsFormsApp1
             };
         }
 
-        void addOffer(Offer newOffer)
+        //TODO: Dodawanie oferty do bazy danych
+        void addOfferToDb(Offer newOffer) 
         {
+
         }
 
-        public void DeleteOfferById(int id)
+        // TODO: aktualizowanie ofert w bazie
+        public void updateOfferInDb(int id)
+        {
+
+        }
+
+        public void DeleteOfferFromList(int id)
         {
             Offers.Remove(Offers.Find(o => o.Id == id));
         }
 
-        public void DeleteOfferBySelectedOffer(Offer offer)
+        public void DeleteOfferFromList(Offer offer)
         {
             Offers.Remove(offer);
         }
@@ -78,6 +89,9 @@ namespace WindowsFormsApp1
             return Offers.Find(o => o.Id == id);
         }
 
+
+
+        // TODO: do wywalenia -> fronEnd to robi
         void readOffersById()
         {
 
