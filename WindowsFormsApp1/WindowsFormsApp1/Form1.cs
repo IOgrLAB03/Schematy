@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
             listView1.Columns.Add("Price", -2, HorizontalAlignment.Left);
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count < 1)
                 return;
@@ -72,7 +72,7 @@ namespace WindowsFormsApp1
             label7.Text = offer.Id.ToString();
         }
 
-        private void listView1_OnMouseClick(object sender, MouseEventArgs e)
+        private void ListView1_OnMouseClick(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Right) == 0) return;
             SelectedOffer = Catalog.GetOfferById(
@@ -112,7 +112,7 @@ namespace WindowsFormsApp1
             };
         }
 
-        private void startDateTextBox9_TextChanged(object sender, EventArgs e)
+        private void StartDateTextBox9_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -137,7 +137,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void startDateTextBox9_OnMouseClick(object sender, MouseEventArgs e)
+        private void StartDateTextBox9_OnMouseClick(object sender, MouseEventArgs e)
         {
             _startDateTextBox9Focus = true;
             _endDateTextBox10Focus = false;
@@ -145,14 +145,14 @@ namespace WindowsFormsApp1
             monthCalendar1.Visible = !monthCalendar1.Visible;
         }
 
-        private void startDateTextBox9_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void StartDateTextBox9_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             startDateTextBox9.BackColor = Color.LightCoral;
             _selectFlags["start date"] = false;
             ButtonEnable();
         }
 
-        private void endDateTextBox10_TextChanged(object sender, EventArgs e)
+        private void EndDateTextBox10_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -178,7 +178,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void endDateTextBox10_OnMouseClick(object sender, MouseEventArgs e)
+        private void EndDateTextBox10_OnMouseClick(object sender, MouseEventArgs e)
         {
             _endDateTextBox10Focus = true;
             _startDateTextBox9Focus = false;
@@ -186,7 +186,7 @@ namespace WindowsFormsApp1
             monthCalendar1.Visible = !monthCalendar1.Visible;
         }
 
-        private void endDateTextBox10_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void EndDateTextBox10_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             endDateTextBox10.BackColor = Color.LightCoral;
             _selectFlags["end date"] = false;
@@ -194,7 +194,7 @@ namespace WindowsFormsApp1
         }
 
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             var startDate = monthCalendar1.SelectionStart.ToShortDateString();
             var endDate = monthCalendar1.SelectionEnd.ToShortDateString();
@@ -205,7 +205,7 @@ namespace WindowsFormsApp1
                 endDateTextBox10.Text = monthCalendar1.SelectionEnd.ToShortDateString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (!_button1Flag)
             {
@@ -236,9 +236,6 @@ namespace WindowsFormsApp1
 
                 button1.Text = "Select";
             }
-
-
-            //todo: process final offer 
         }
 
         private void ButtonEnable()
@@ -278,14 +275,23 @@ namespace WindowsFormsApp1
             return (Order.Homecomming - Order.Departure).TotalDays;
         }
 
-        private void numberComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void NumberComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Clients = new Client[Order.PersonCount = int.Parse(numberComboBox1.Text)];
-            for (var i = 0; i < int.Parse(numberComboBox1.Text); i++)
-                Clients[i] = new Client();
-            _selectFlags["nop"] = true;
-            ButtonEnable();
-            AmountUpdate();
+            try
+            {
+                Clients = new Client[Order.PersonCount = int.Parse(numberComboBox1.Text)];
+                for (var i = 0; i < int.Parse(numberComboBox1.Text); i++)
+                    Clients[i] = new Client();
+                _selectFlags["nop"] = true;
+                ButtonEnable();
+                AmountUpdate();
+                numberComboBox1.BackColor = Color.LightGreen;
+
+            }
+            catch (Exception)
+            {
+                numberComboBox1.BackColor = Color.LightCoral;
+            }
         }
     }
 }

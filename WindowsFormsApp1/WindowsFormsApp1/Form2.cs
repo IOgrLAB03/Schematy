@@ -45,22 +45,22 @@ namespace WindowsFormsApp1
         private Offer Offer { get; }
 
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             Offer.Title = textBox1.Text;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void TextBox2_TextChanged(object sender, EventArgs e)
         {
             Offer.Place = textBox2.Text;
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void TextBox3_TextChanged(object sender, EventArgs e)
         {
             Offer.Purpose = textBox3.Text;
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void TextBox4_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -72,12 +72,12 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void RichTextBox1_TextChanged(object sender, EventArgs e)
         {
             Offer.Content = richTextBox1.Text;
         }
 
-        private void startDateTextBox5_TextChanged(object sender, EventArgs e)
+        private void StartDateTextBox5_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void endDateTextBox6_TextChanged(object sender, EventArgs e)
+        private void EndDateTextBox6_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void endDateTextBox6_OnMouseClick(object sender, MouseEventArgs e)
+        private void EndDateTextBox6_OnMouseClick(object sender, MouseEventArgs e)
         {
             _endDateTextBox6Focus = true;
             _startDateTextBox5Focus = false;
@@ -109,7 +109,7 @@ namespace WindowsFormsApp1
             monthCalendar1.Visible = !monthCalendar1.Visible;
         }
 
-        private void startDateTextBox5_OnMouseClick(object sender, MouseEventArgs e)
+        private void StartDateTextBox5_OnMouseClick(object sender, MouseEventArgs e)
         {
             _startDateTextBox5Focus = true;
             _endDateTextBox6Focus = false;
@@ -117,7 +117,7 @@ namespace WindowsFormsApp1
             monthCalendar1.Visible = !monthCalendar1.Visible;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (!_form1.UpdateFlag)
             {
@@ -132,7 +132,7 @@ namespace WindowsFormsApp1
         }
 
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             var startDate = monthCalendar1.SelectionStart.ToShortDateString();
             var endDate = monthCalendar1.SelectionEnd.ToShortDateString();

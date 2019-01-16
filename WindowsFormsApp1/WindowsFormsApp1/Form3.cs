@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
                 tabControl1.Controls.Add(tp);
             }
 
-            for (var i = 0; i < form1.Clients.Length; i++)
+            for (var i = form1.Clients.Length - 1; i >= 0; i--)
             {
                 tabControl1.SelectedIndex = i;
                 SaveToClient(i);
@@ -155,7 +155,7 @@ namespace WindowsFormsApp1
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (!_button1ClickedFlag)
             {
@@ -209,7 +209,7 @@ namespace WindowsFormsApp1
             SaveToClient(LastIndex);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             Close();
         }

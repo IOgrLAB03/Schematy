@@ -74,6 +74,8 @@ namespace WindowsFormsApp1
             // 
             // listView1
             // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(12, 112);
             this.listView1.MultiSelect = false;
@@ -82,8 +84,8 @@ namespace WindowsFormsApp1
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_OnMouseClick);
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListView1_OnMouseClick);
             // 
             // groupBox1
             // 
@@ -163,6 +165,9 @@ namespace WindowsFormsApp1
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.richTextBox1);
             this.groupBox5.Location = new System.Drawing.Point(422, 112);
             this.groupBox5.Name = "groupBox5";
@@ -173,6 +178,9 @@ namespace WindowsFormsApp1
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(7, 20);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
@@ -182,6 +190,7 @@ namespace WindowsFormsApp1
             // 
             // groupBox6
             // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.label5);
             this.groupBox6.Location = new System.Drawing.Point(422, 318);
             this.groupBox6.Name = "groupBox6";
@@ -201,6 +210,7 @@ namespace WindowsFormsApp1
             // 
             // groupBox7
             // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox7.Controls.Add(this.label6);
             this.groupBox7.Location = new System.Drawing.Point(553, 318);
             this.groupBox7.Name = "groupBox7";
@@ -220,6 +230,7 @@ namespace WindowsFormsApp1
             // 
             // groupBox8
             // 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.Controls.Add(this.label7);
             this.groupBox8.Location = new System.Drawing.Point(684, 318);
             this.groupBox8.Name = "groupBox8";
@@ -240,6 +251,7 @@ namespace WindowsFormsApp1
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(658, 369);
             this.button1.Name = "button1";
@@ -248,7 +260,7 @@ namespace WindowsFormsApp1
             this.button1.Text = "Sellect";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // startDateTextBox9
             // 
@@ -258,12 +270,13 @@ namespace WindowsFormsApp1
             this.startDateTextBox9.Size = new System.Drawing.Size(100, 20);
             this.startDateTextBox9.TabIndex = 16;
             this.startDateTextBox9.ValidatingType = typeof(System.DateTime);
-            this.startDateTextBox9.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.startDateTextBox9_MaskInputRejected);
-            this.startDateTextBox9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.startDateTextBox9_OnMouseClick);
-            this.startDateTextBox9.TextChanged += new System.EventHandler(this.startDateTextBox9_TextChanged);
+            this.startDateTextBox9.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.StartDateTextBox9_MaskInputRejected);
+            this.startDateTextBox9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StartDateTextBox9_OnMouseClick);
+            this.startDateTextBox9.TextChanged += new System.EventHandler(this.StartDateTextBox9_TextChanged);
             // 
             // groupBox9
             // 
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox9.Controls.Add(this.startDateTextBox9);
             this.groupBox9.Location = new System.Drawing.Point(422, 369);
             this.groupBox9.Name = "groupBox9";
@@ -275,6 +288,7 @@ namespace WindowsFormsApp1
             // 
             // groupBox10
             // 
+            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox10.Controls.Add(this.endDateTextBox10);
             this.groupBox10.Location = new System.Drawing.Point(540, 369);
             this.groupBox10.Name = "groupBox10";
@@ -292,12 +306,13 @@ namespace WindowsFormsApp1
             this.endDateTextBox10.Size = new System.Drawing.Size(100, 20);
             this.endDateTextBox10.TabIndex = 16;
             this.endDateTextBox10.ValidatingType = typeof(System.DateTime);
-            this.endDateTextBox10.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.endDateTextBox10_MaskInputRejected);
-            this.endDateTextBox10.MouseClick += new System.Windows.Forms.MouseEventHandler(this.endDateTextBox10_OnMouseClick);
-            this.endDateTextBox10.TextChanged += new System.EventHandler(this.endDateTextBox10_TextChanged);
+            this.endDateTextBox10.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.EndDateTextBox10_MaskInputRejected);
+            this.endDateTextBox10.MouseClick += new System.Windows.Forms.MouseEventHandler(this.EndDateTextBox10_OnMouseClick);
+            this.endDateTextBox10.TextChanged += new System.EventHandler(this.EndDateTextBox10_TextChanged);
             // 
             // groupBox11
             // 
+            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox11.Controls.Add(this.numberComboBox1);
             this.groupBox11.Location = new System.Drawing.Point(422, 422);
             this.groupBox11.Name = "groupBox11";
@@ -322,10 +337,11 @@ namespace WindowsFormsApp1
             this.numberComboBox1.Size = new System.Drawing.Size(100, 21);
             this.numberComboBox1.TabIndex = 20;
             this.numberComboBox1.Text = "0";
-            this.numberComboBox1.SelectedIndexChanged += new System.EventHandler(this.numberComboBox1_SelectedIndexChanged);
+            this.numberComboBox1.SelectedIndexChanged += new System.EventHandler(this.NumberComboBox1_SelectedIndexChanged);
             // 
             // groupBox12
             // 
+            this.groupBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox12.Controls.Add(this.label9);
             this.groupBox12.Controls.Add(this.label8);
             this.groupBox12.Location = new System.Drawing.Point(540, 422);
@@ -356,6 +372,7 @@ namespace WindowsFormsApp1
             // 
             // monthCalendar1
             // 
+            this.monthCalendar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.monthCalendar1.Location = new System.Drawing.Point(417, 200);
             this.monthCalendar1.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.monthCalendar1.MaxSelectionCount = 365;
@@ -363,7 +380,7 @@ namespace WindowsFormsApp1
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 22;
             this.monthCalendar1.Visible = false;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalendar1_DateChanged);
             // 
             // Form1
             // 
@@ -385,6 +402,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView1);
+            this.MinimumSize = new System.Drawing.Size(816, 523);
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
